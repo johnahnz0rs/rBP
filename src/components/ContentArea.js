@@ -1,4 +1,5 @@
 import React from 'react';
+import Home from './Home';
 // import { Route } from 'react-router-dom';
 
 
@@ -34,9 +35,11 @@ class ContentArea extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="root-div container-fluid">
+                <div className="root-div">
 
                     <p>lol johnahnz0rs is l33t</p>
+
+                    <Home />
 
                 </div>
             </React.Fragment>
