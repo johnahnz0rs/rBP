@@ -1,22 +1,16 @@
-
-
 /*ContentArea.js*/
-
-/*end ContentArea.js*/
 
 
 /*Home.js*/
-.div-home {
-    width: 600px;
+.log-pt {
+    /*border: 1px solid black;*/
+    margin: 50px;
 }
-.form-check {
-    display: block;
-    margin: 20px auto;
+.log-food {
+    /*border: 1px solid black;*/
+    margin: 50px;
 }
-
-
-
-.div-food-log {
-    margin: 20px;
+.log-projects {
+    /*border: 1px solid black;*/
+    margin: 50px;
 }
-/*end Home.js*/
