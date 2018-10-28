@@ -3,22 +3,13 @@ import Home from './Home';
 // import { Route } from 'react-router-dom';
 
 
-
-// import MyNavBar from './MyNavbar';
-// import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-// import Brand from '../assets/brand.png';
-
-
-// import NaYoung from './NaYoung';
-
-
-
-
 class ContentArea extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { };
+        this.state = {
+
+        };
         // this.onClick = this.onClick.bind(this);
     }
 
@@ -36,8 +27,6 @@ class ContentArea extends React.Component {
         return (
             <React.Fragment>
                 <div className="root-div">
-
-                    <p>lol johnahnz0rs is l33t</p>
 
                     <Home />
 
