@@ -30,13 +30,10 @@ class Home extends React.Component {
 
     render() {
 
-        // const today = moment().format('dddd, MMMM D, YYYY');
-
         return (
 
             <React.Fragment>
                 <div className="div-home container-fluid">
-
                     <h3 className="text-center">{this.state.today}</h3>
                     <button className="btn btn-outline-primary" onClick={() => {console.log('*** today ***', this.state.today, typeof this.state.today)}}>Print today</button>
 

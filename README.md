@@ -1,9 +1,75 @@
-rBP
+#rBP
+#####to help johnahnz0rs live up to his word and be his best self.
+by johnahnz0rs
+
+---
 
 
-[] node backend with dbase
-[] html daily check-in
-[] html daily digest
-[] html weekly digest
 
 
+
+
+
+
+
+
+
+
+
+###macro
+
+- when i log in i want to see health, wealth, love, happiness, in this way:
+    - a card that spans the whole page:
+        - buttons in a row: 
+            - food log, 
+            - pt log, 
+            - weight log
+    - a card that spans the whole page:
+        - square buttons, maybe 3x3 (steal from instagram):
+            - {projectName}
+            - when i click this button, redirect me to a new route and component
+                - upon loading the subsequent component (should be a projectSchema) do an api call for that project's info
+
+- templates/views:
+    - 
+    - each project
+        
+    
+- api calls:
+    - each project
+    - all projects
+    - today's object
+    - today's logs
+---
+###micro
+
+- [ ] login page
+    - [ ] user object
+- [x] node backend with dbase - connected to mlab
+- [ ] html daily check-in
+    - [ ] create a daily entry model
+
+digests:
+- [ ] html daily digest
+- [ ] html weekly digest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
