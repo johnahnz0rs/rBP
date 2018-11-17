@@ -61,14 +61,18 @@ class Login extends React.Component {
 
         return(
             <React.Fragment>
-                <div className="my-login container" style={myLogin}>
+                <div className="my-login container-fluid" style={myLogin}>
 
                     <p className="text-center d-block">yo this is the login page. it's under construction, dudebro. brb</p>
 
 
                     <div>
-                        <label htmlFor="email"></label>
+                        <label htmlFor="email">Email</label>
                         <input name="email" type="email" onChange={this.inputHandler}/>
+
+                        <label htmlFor="password">Password</label>
+                        {/*<input name="password" type="password" onChange={this.inputHandler} />*/}
+                        <input name="password" type="text" onChange={this.inputHandler} />
                     </div>
 
                 </div>

@@ -36,18 +36,19 @@ by johnahnz0rs
         
     
 - api calls:
-    - each project
-    - all projects
-    - today's object
-    - today's logs
+    - get one project
+    - get all projects
+    - get today's object
+    - get today's logs
+    - get today's food log from 
 ---
 ###micro
 
 - [ ] login page
-    - [ ] user object
+    - [ ] create user object
 - [x] node backend with dbase - connected to mlab
 - [ ] html daily check-in
-    - [ ] create a daily entry model
+    - [x] create a daily entry model
 
 digests:
 - [ ] html daily digest

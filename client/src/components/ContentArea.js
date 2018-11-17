@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import MyNavbar from './MyNavbar';
+import Login from './Login';
 import Home from './Home';
 import Test from './Test';
 
