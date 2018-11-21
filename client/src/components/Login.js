@@ -62,9 +62,7 @@ class Login extends React.Component {
         return(
             <React.Fragment>
                 <div className="my-login container-fluid" style={myLogin}>
-
-                    <p className="text-center d-block">yo this is the login page. it's under construction, dudebro. brb</p>
-
+                    <p className="">MyLogin</p>
 
                     <div>
                         <label htmlFor="email">Email</label>

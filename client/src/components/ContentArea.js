@@ -23,7 +23,7 @@ class ContentArea extends React.Component {
     }
 
     componentDidMount() {
-        console.log('*** lol johnahnz0rs is l33t on port 3000 ***');
+        // console.log('*** lol johnahnz0rs is l33t on port 3000 ***');
     }
 
     // onClick = (e) => {

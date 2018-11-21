@@ -44,8 +44,10 @@ by johnahnz0rs
 ---
 ###micro
 
-- [ ] login page
-    - [ ] create user object
+- [ ] login pagew
+- [ ] create user object
+
+
 - [x] node backend with dbase - connected to mlab
 - [ ] html daily check-in
     - [x] create a daily entry model
