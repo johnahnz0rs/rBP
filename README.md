@@ -6,6 +6,9 @@ by johnahnz0rs
 
 
 
+### TO-DO LIST
+
+- [x] build a randomActivityPicker page - 11/25/18
 
 
 
@@ -13,8 +16,7 @@ by johnahnz0rs
 
 
 
-
-
+---
 
 ###macro
 
@@ -44,8 +46,10 @@ by johnahnz0rs
 ---
 ###micro
 
-- [ ] login pagew
+- [ ] login page
 - [ ] create user object
+
+
 
 
 - [x] node backend with dbase - connected to mlab

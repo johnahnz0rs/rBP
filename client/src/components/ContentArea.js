@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import MyNavbar from './MyNavbar';
 import Login from './Login';
 import Home from './Home';
+import ActivityPicker from './ActivityPicker';
 import Test from './Test';
 
 
@@ -35,10 +36,11 @@ class ContentArea extends React.Component {
             <React.Fragment>
                 <div className="root-div">
                     <MyNavbar />
-                    <Test />
+                    {/*<Test />*/}
 
-                    <Route exact path="/" render={() => <Login loggedInUser={this.loggedInUser} />} />
+                    <Route exact path="/" render={() => <ActivityPicker /> } />
                     <Route path="/home" render={() => <Home user={this.state.user || {}} />} />
+                    <Route path="/login" render={() =><Login loggedInUser={this.loggedInUser} />} />
 
                 </div>
             </React.Fragment>
