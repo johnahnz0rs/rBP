@@ -13,7 +13,11 @@ class RandomActivityPicker extends React.Component {
     }
 
     componentDidMount() {
-        console.log('*** RandomActivityPicker.js ***');
+        // console.log('*** RandomActivityPicker.js ***');
+        fetch('/lol')
+            .then(res => res.json())
+            .then(data => console.log('*** response from backend server ***', data))
+            .catch(err => console.log(err));
     }
 
     // @DESC returns a randomActivity object from a weight list of user's weekly activities;

@@ -3,4 +3,6 @@ const router = require('express').Router();
 
 module.exports = router
     .get('/lol', controller.lol)
+    .post('/api/login', controller.login)
+    .post('/api/register', controller.register)
 ;

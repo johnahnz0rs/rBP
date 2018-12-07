@@ -11,6 +11,7 @@
     "prod": "concurrently --kill-others-on-fail \"npm run-script prodserver\" \"npm run-script prodclient\""
   },
   "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
     "eslint-config-google": "^0.11.0",

@@ -8,6 +8,13 @@ by johnahnz0rs
 
 ### TO-DO LIST
 
+- [ ] make the navbar say "rBP, by z0rs, Inc." OR
+    - [ ] "rBP, brought to you by z0rs, Inc."
+- [ ] make a login page
+    - [ ] save login page to blank-mern-project
+
+
+
 - [x] build a randomActivityPicker page - 11/25/18
 
 
@@ -19,8 +26,24 @@ by johnahnz0rs
 ---
 
 ###macro
+* 11/26/18 - When I open the app, I want to see a list of options for things i can do. I also want some things in a collapsed navbar, and when expanded i want the navbar to be a vertical list — but on a desktop, it can be horizontal on top.
+    * view-template-options on post-login landing page - via two btn-lg along top of page: TODAY / WEEK
+        * TODAY (aka Bullet Journal): 
+            * for each of the following: green if already done, red if not yet done
+            * Morning Routine
+            * Meditation
+            * HEALTH: Food Log, PT Log, whatDo(PT),
+            * WORK:  Projects & Prep & Schedule, whatDo(Projects),
+            * PLAY: Social Events / Night Life,
+            * Gratitude Journal
+        * WEEK: 
+            * calendar of events / appointments / social
+            * due dates
+            * pt log indicator (yes logged - green / not logged - red / future date - gray) “x days this week"
+            * food log (yes logged - green / not logged - red / future date - gray) “x days this week"
 
-- when i log in i want to see health, wealth, love, happiness, in this way:
+
+- 11/21/18(?) - when i log in i want to see health, wealth, love, happiness, in this way:
     - a card that spans the whole page:
         - buttons in a row: 
             - food log, 
