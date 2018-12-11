@@ -127,8 +127,8 @@ class Login extends React.Component {
                     <div className="text-center">
                         <button className="btn btn-lg btn-success m-3" onClick={this.login}>Log In</button>
                         <button className="btn btn-lg btn-primary m-3" onClick={this.register}>Register</button>
-                        <button className="btn btn-lg btn-outline-danger m-3" onClick={this.devLogin}>johnahnz0rs</button>
-                        <button className="btn btn-lg btn-outline-warning m-3" onClick={this.printState}>printState</button>
+                        {/*<button className="btn btn-lg btn-outline-danger m-3" onClick={this.devLogin}>johnahnz0rs</button>*/}
+                        {/*<button className="btn btn-lg btn-outline-warning m-3" onClick={this.printState}>printState</button>*/}
                     </div>
 
                 </div>
