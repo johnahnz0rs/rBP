@@ -1,11 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Login from './Login';
 import Home from './Home';
-// import MyNavbar from './MyNavbar';
-// import ActivityPicker from './ActivityPicker';
-// import Test from './Test';
+
 
 
 class ContentArea extends React.Component {
@@ -16,39 +14,28 @@ class ContentArea extends React.Component {
             user: null,
         };
         // bind methods here
-        // this.onClick = this.onClick.bind(this);
         this.loggedInUser = this.loggedInUser.bind(this);
     }
 
     loggedInUser = (user) => {
         console.log('*** received this loggedInUser ***', user);
         this.setState({user: user});
-        this.props.history.push('/home')
     };
 
     componentDidMount() {
-        // console.log('*** lol johnahnz0rs is l33t on port 3000 ***');
+
     }
 
-    // onClick = (e) => {
-    //     this.setState({showThisTab: e.target.id});
-    // };
 
     render() {
         return (
             <React.Fragment>
                 <div className="root-div">
-                    {/*<MyNavbar />*/}
-                    {/*<Test />*/}
 
-                    {/*<Route exact path="/" render={() => <ActivityPicker /> } />*/}
-                    {/*<Route path="/home" render={() => <Home user={this.state.user || {}} />} />*/}
-                    {/*<Route path="/login" render={() =><Login loggedInUser={this.loggedInUser} />} />*/}
+                    {!this.state.user && <Login loggedInUser={this.loggedInUser} />}
+                    {this.state.user && <Home user={this.state.user} />}
 
-                    <Switch>
-                        <Route path="/" exact render={() => <Login loggedInUser={this.loggedInUser} /> } />
-                        {this.state.user && <Route path="/home" exact render={() => <Home user={this.state.user} /> } />}
-                    </Switch>
+
 
 
                 </div>
@@ -57,4 +44,4 @@ class ContentArea extends React.Component {
     }
 }
 
-export default ContentArea;
+export default withRouter(ContentArea);

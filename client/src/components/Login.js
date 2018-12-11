@@ -1,14 +1,17 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 class Login extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            // user: this.props.user;
-            // backendURI: 'http://localhost:5000',
+            // login
             username: null,
             password: null,
+            //
+            // register
             fname: null,
             lname: null,
             email: null,
@@ -21,14 +24,31 @@ class Login extends React.Component {
             amazon: null,
         };
         // declare methods here
+        this.devLogin = this.devLogin.bind(this);
+        this.printState = this.printState.bind(this);
         this.inputHandler = this.inputHandler.bind(this);
         this.login = this.login.bind(this);
         this.register = this.register.bind(this);
     }
 
     componentDidMount() {
+        axios.get('/lol')
+            .then(merp => console.log('*** backend says wassup ***', merp))
+            .catch(err => console.log(err));
 
     }
+
+    // DEVELOPMENT: auto-login johnahnz0rs
+    devLogin = () => {
+        console.log('*** u clicked devLogin() ***');
+
+        this.setState({username: 'johnahnz0rs'});
+        this.setState({password: 'password'});
+        if (this.state.username && this.state.password) { this.login(); }
+
+    };
+
+    printState = () => console.log(this.state);
 
 
 
@@ -45,18 +65,14 @@ class Login extends React.Component {
         if (!this.state.username || !this.state.password) {
             console.log('*** plz enter username AND password ***');
         } else {
-            const postConfig = {
-                method: 'POST',
-                headers: {'Content-Type':'application/json'},
-                body: {
-                    user: this.state.username,
-                    password: this.state.password,
-                }
+            const loginUser = {
+                username: this.state.username,
+                password: this.state.password
             };
-            fetch(`/api/login`, postConfig)
-                .then(res =>res.json())
-                .then(user => {
-                    if (!user.err) {
+            axios.post('/api/login', loginUser)
+                .then(res => {
+                    if (!res.err) {
+                        const user = res.data;
                         console.log('*** Login.js sending \'user\' up to ContentArea thxkbye ***', user);
                         this.props.loggedInUser(user);
                     }
@@ -72,19 +88,14 @@ class Login extends React.Component {
         if (!this.state.username || !this.state.password) {
             console.log('*** plz enter username and password ***');
         } else {
-            const postConfig = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json'},
-                body: {
-                    user: this.state.username,
-                    password: this.state.password
-                }
+            const newUser = {
+                username: this.state.username,
+                password: this.state.password
             };
-            fetch('/api/register', postConfig)
-                .then(res => res.json())
-                .then(whatever => {
-                    if (!whatever.err) {
-                        console.log('*** registration successful ***');
+            axios.post('/api/register', newUser)
+                .then(response => {
+                    if (!response.err) {
+                        console.log('*** response from backend ***', response);
                         this.props.history.push('/');
                     }
                 })
@@ -96,13 +107,6 @@ class Login extends React.Component {
 
     render() {
 
-        // const myLogin = {
-        //     backgroundColor: 'gray',
-        //     width: '100%',
-        //     display: 'block',
-        //     padding: '50px'
-        // };
-
 
         return(
             <React.Fragment>
@@ -111,18 +115,20 @@ class Login extends React.Component {
 
                     <div className="form-group text-center">
                         <label htmlFor="username">Username</label>
-                        <input name="username" type="email" onChange={this.inputHandler}/>
+                        <input name="username" className="form-control" type="email" onChange={this.inputHandler}/>
                     </div>
 
                     <div className="form-group text-center">
                         <label htmlFor="password">Password</label>
                         {/*<input name="password" type="password" onChange={this.inputHandler} />*/}
-                        <input name="password" type="text" onChange={this.inputHandler} />
+                        <input name="password" className="form-control" type="text" onChange={this.inputHandler} />
                     </div>
 
-                    <div className="form-group text-center">
-                        <button className="mx-3" onClick={this.login}>Log In</button>
-                        <button className="mx-3" onClick={this.register}>Register</button>
+                    <div className="text-center">
+                        <button className="btn btn-lg btn-success m-3" onClick={this.login}>Log In</button>
+                        <button className="btn btn-lg btn-primary m-3" onClick={this.register}>Register</button>
+                        <button className="btn btn-lg btn-outline-danger m-3" onClick={this.devLogin}>johnahnz0rs</button>
+                        <button className="btn btn-lg btn-outline-warning m-3" onClick={this.printState}>printState</button>
                     </div>
 
                 </div>
@@ -131,4 +137,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
