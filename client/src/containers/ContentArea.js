@@ -32,11 +32,10 @@ class ContentArea extends React.Component {
             <React.Fragment>
                 <div className="root-div">
 
-                    {!this.state.user && <Login loggedInUser={this.loggedInUser} />}
-                    {this.state.user && <Home user={this.state.user} />}
-
-
-
+                    { this.state.user ?
+                        <Home user={this.state.user} /> :
+                        <Login loggedInUser={this.loggedInUser} />
+                    }
 
                 </div>
             </React.Fragment>

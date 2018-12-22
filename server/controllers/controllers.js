@@ -62,19 +62,14 @@ module.exports = {
     createNewBulletJournalEntry: (req, res) => {
         console.log('*** createNewBJEntry() ***', req.body);
         const newDay = req.body;
-
         const userId = req.body.userId;
         const year = req.body.year;
         const dayOfYear = req.body.dayOfYear;
 
-
         BulletJournal.findOne({userId: userId, year: year, dayOfYear: dayOfYear})
             .then(entry => {
-                if (entry) {
-                    if (entry._id) {
-                        console.log('*** response from createNewBJEntry.BJ.findOne() ***', entry);
-                        res.json({err: 'entry already exists'});
-                    }
+                if (entry && entry._id) {
+                    res.json({err: 'entry already exists'});
                 } else {
                     BulletJournal.create(newDay)
                         .then(entry => res.json(entry))
@@ -85,6 +80,8 @@ module.exports = {
                 console.log(err);
                 res.json(err);
             });
+
+
         // res.json({err: 'cool dude. thx! from backend.createNewBJEntry() '});
     },
 
@@ -107,20 +104,25 @@ module.exports = {
             console.log('*** logging in ***');
             User.findOne({username: req.body.username})
                 .then(user => {
-                    bcrypt.compare(req.body.password, user.password)
-                        .then(passMatch => {
-                            if (!user || !passMatch) {
-                                console.log('*** username and password DO NOT match ***');
-                                res.json({err: '*** username and password DO NOT match ***'});
-                            } else if (user && passMatch) {
-                                console.log('*** username and password match yes! ***');
-                                res.json(user);
-                            }
-                        })
-                        .catch(err => {
-                            console.log('*** error in bcrypt', err);
-                            res.json(err);
-                        });
+
+                    if (user && user._id) {
+                        bcrypt.compare(req.body.password, user.password)
+                            .then(passMatch => {
+                                if (!user || !passMatch) {
+                                    console.log('*** username and password DO NOT match ***');
+                                    res.json({err: '*** username and password DO NOT match ***'});
+                                } else if (user && passMatch) {
+                                    console.log('*** username and password match yes! ***');
+                                    res.json(user);
+                                }
+                            })
+                            .catch(err => {
+                                console.log('*** error in bcrypt', err);
+                                res.json(err);
+                            });
+                    } else {
+                        res.json({err: 'incorrect username'});
+                    }
                 })
                 .catch(err => {
                     console.log('*** error in User.findOne() ***', err);
@@ -133,16 +135,15 @@ module.exports = {
     // @ROUTE   /api/bulletjournal/:userId/:year/:dayOfYear
     // @DESC    retrieves one bulletJournalEntry by userId, year, and dayOfYear
     getOneBulletJournalEntry: (req, res) => {
-        console.log(`*** getOneBulletJournalEntry({ userId: ${req.params.userId}, year: ${req.params.year}, dayOfYear: ${req.params.dayOfYear} }) ***`);
-
         const userId = req.params.userId;
         const year = req.params.year;
         const dayOfYear = req.params.dayOfYear;
+        console.log(`*** getOneBulletJournalEntry({ userId: ${userId}, year: ${year}, dayOfYear: ${dayOfYear} }) ***`);
 
 
         BulletJournal.findOne({_id: userId, year: year, dayOfYear: dayOfYear})
             .then(response => {
-                if (response) {
+                if (response && response._id) {
                     console.log('*** bulletJournal entry found ***', response);
                     res.json(response);
                 } else {
